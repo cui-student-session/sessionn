@@ -1,5 +1,6 @@
-<html lang="en" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths"><head><base href="https://cuonline.cuiwah.edu.pk:8095/">
-
+<!DOCTYPE html>
+<html lang="en" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths"><head>
+<base href="https://cuonline.cuiwah.edu.pk:8095/">
     <meta charset="utf-8">
     
     <title>CUOnline Student Portal</title>
@@ -9,7 +10,7 @@
     <meta name="author" content="">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
+    <script src="/Content/js/html5shiv.js"></script>
     <![endif]-->
     <!-- Fav and touch icons -->
 
@@ -85,47 +86,17 @@
             </div>
             <div class="col-md-6 column rounded_menu_boxes">
                 <ul class="pull-right">
-                    <li><a title="Home" class="home" id="Dash_Board" href="/Courses/Index">Dashboard</a><span></span></li>
-                    <li><a title="Course Registration Card" class="regCard" id="Registration_Card" href="/RegistrationCard/Index">Registration Card</a><span></span></li>
-                                        <li><a title="Student Fees" class="fees" id="Fees" href="/Fees/Index">Fees</a><span></span></li>
-                    <li><a title="Result Card" class="marks  selected" id="Result_Card" href="/ResultCard/Index">Result Card</a><span></span></li>
-                    <li><a title="My Profile" class="attndnce" id="My_Profile" href="/Profile/Index">Profile</a><span></span></li>
+                    <li><a title="Home" class="home" id="Dash_Board" href="#">Dashboard</a><span></span></li>
+                    <li><a title="Course Registration Card" class="regCard" id="Registration_Card" href="#">Registration Card</a><span></span></li>
+                                        <li><a title="Student Fees" class="fees" id="Fees" href="#">Fees</a><span></span></li>
+                    <li><a title="Result Card" class="marks  selected" id="Result_Card" href="#">Result Card</a><span></span></li>
+                    <li><a title="My Profile" class="attndnce" id="My_Profile" href="#">Profile</a><span></span></li>
                     
-                    <li><a title="Logout" class="reports" id="Sign_Out" href="/Login/Sign_out">Logout</a><span></span></li>
+                    <li><a title="Logout" class="reports" id="Sign_Out" href="#">Logout</a><span></span></li>
                 </ul>
             </div>
             <div class="col-md-2 column " style="padding-right:0">
-                <script language="javascript" type="text/javascript">
-                    $(document).ready(function () {
-                        $("#divImageHolder").addClass("StudentPictureSpinner");
-                        var imageUrl = "/Login/GetBase64Image";
-                        $.ajax({
-                            cache: false,
-                            type: "GET",
-                            url: imageUrl,
-                            contentType: 'application/json',
-                            dataType: "json",
-                            success: function (data) {
-                                //debugger;
-                                $("#divImageHolder").removeClass("StudentPictureSpinner");
-                                var image = data.base64image;
-                                if (image.length > 0) {
-                                    $("#divImageHolder").html("<img  style='float:right' src='data:image/jpg;base64," + image + "'/>");
-                                }
-                                else {
-                                    $("#divImageHolder").html("No Picture Avaiable.");
-                                }
-
-                            },
-                            error: function (xhr) {
-                                $("#divImageHolder").removeClass("StudentPictureSpinner");
-                                $("#divImageHolder").html("Unable to load Picture.");
-                            }
-                        });
-                    });
-
-                </script>
-                <div id="divImageHolder" class="StudentPicture"><img style="float:right" src="data:image/jpg;base64,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"></div>
+                <div id="divImageHolder" class="StudentPicture">No Picture Avaiable.</div>
             </div>
             <div class="col-md-9 column mobile_menu">
                 <nav class="navbar navbar-default" role="navigation">
@@ -141,13 +112,13 @@
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li><a id="DashBoard" href="/Courses/Index">Dashboard</a></li>
-                            <li><a id="RegistrationCard" href="/Courses/Index">Registration Card</a></li>
-                                                        <li><a id="Fees" href="/Fees/Index">Fees</a></li>
-                            <li><a id="ResultCard" href="/ResultCard/Index" class=" selected">Result Card</a></li>
-                            <li><a id="MyProfile" href="/Profile/Index">Profile</a></li>
-                            <li><a id="SupportSystem" href="/Profile/Index">HelpDesk</a></li>
-                            <li><a id="SignOut" href="/Login/Sign_out">Logout</a></li>
+                            <li><a id="DashBoard" href="#">Dashboard</a></li>
+                            <li><a id="RegistrationCard" href="#">Registration Card</a></li>
+                                                        <li><a id="Fees" href="#">Fees</a></li>
+                            <li><a id="ResultCard" href="#" class=" selected">Result Card</a></li>
+                            <li><a id="MyProfile" href="#">Profile</a></li>
+                            <li><a id="SupportSystem" href="#">HelpDesk</a></li>
+                            <li><a id="SignOut" href="#">Logout</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -185,11 +156,6 @@
 <div class="se-pre-con" style="display: none;">
 </div>
 
-<style>
-    
-</style>
-
-
             <link href="/Content/css/ResultCard.css" rel="stylesheet">
             <div style="background:#13A89E;margin: 5px;text-align: center;padding: 5px;font-weight: bold;color: white;font-size: 18px;">
                 Student Result Card
@@ -197,8 +163,9 @@
                     <img style="height:39px;" src="https://img.icons8.com/plasticine/2x/print.png" alt="Print Result Card">
                 </a>
             </div>
+                
+                <!-- ==================== SEMESTER 1 (Spring 2024) ==================== -->
                 <div class="single_result_container">
-
                     <div class="table_container">
                         <table class="tbl_one">
                             <tbody><tr>
@@ -220,7 +187,7 @@
                         <table class="tbl_two">
                             <tbody><tr bordercolor="#f5f5f5">
                                 <td colspan="4" bordercolor="#FFFFFF" class="WhiteFormheading2" bgcolor="#FFFFFF" align="center">
-                                    <table id="AutoNumber2" style="border-collapse: collapse" width="100%" cellspacing="0" cellpadding="5" bordercolor="#000000" border="1" bgcolor="#FFFFFF" align="center">
+                                    <table id="AutoNumber1" style="border-collapse: collapse" width="100%" cellspacing="0" cellpadding="5" bordercolor="#000000" border="1" bgcolor="#FFFFFF" align="center">
                                         <tbody><tr class="WhiteFormTextResult" bordercolor="#000000" bgcolor="#f5f5f5">
                                             <td width="20%" align="center"><strong>Course No</strong></td>
                                             <td width="54%" align="center"><strong>Course Title</strong></td>
@@ -368,10 +335,10 @@
                             <tr> <td><b>Scholastic Status: </b>GAS   </td> </tr>
                         </tbody></table>
                     </div>
-
                 </div>
-                <div class="single_result_container">
 
+                <!-- ==================== SEMESTER 2 (Fall 2024) ==================== -->
+                <div class="single_result_container">
                     <div class="table_container">
                         <table class="tbl_one">
                             <tbody><tr>
@@ -523,10 +490,10 @@
                             <tr> <td><b>Scholastic Status: </b>GAS   </td> </tr>
                         </tbody></table>
                     </div>
-
                 </div>
-                <div class="single_result_container">
 
+                <!-- ==================== SEMESTER 3 (Spring 2025) ==================== -->
+                <div class="single_result_container">
                     <div class="table_container">
                         <table class="tbl_one">
                             <tbody><tr>
@@ -548,7 +515,7 @@
                         <table class="tbl_two">
                             <tbody><tr bordercolor="#f5f5f5">
                                 <td colspan="4" bordercolor="#FFFFFF" class="WhiteFormheading2" bgcolor="#FFFFFF" align="center">
-                                    <table id="AutoNumber2" style="border-collapse: collapse" width="100%" cellspacing="0" cellpadding="5" bordercolor="#000000" border="1" bgcolor="#FFFFFF" align="center">
+                                    <table id="AutoNumber3" style="border-collapse: collapse" width="100%" cellspacing="0" cellpadding="5" bordercolor="#000000" border="1" bgcolor="#FFFFFF" align="center">
                                         <tbody><tr class="WhiteFormTextResult" bordercolor="#000000" bgcolor="#f5f5f5">
                                             <td width="20%" align="center"><strong>Course No</strong></td>
                                             <td width="54%" align="center"><strong>Course Title</strong></td>
@@ -558,7 +525,7 @@
                                             <td width="10%" align="center"><strong>G.P.</strong></td>
                                         </tr>
 
-                                            <tr bordercolor="#000000" class="WhiteFormTextResult" bgcolor="#f5f5f5">
+                                            <tr bordercolor="#000000" class="WhiteFormTextResult" bgcolor="#f5f5f5" style="background-color: #d4edda !important; color: black !important;">
                                                 <td align="center">CSC241          </td>
                                                 <td bgcolor="#f5f5f5" align="center"><div align="left">Object Oriented Programming</div></td>
                                                 <td width="20%" align="center">
@@ -566,11 +533,11 @@
                                                         4
                                                     </strong>
                                                 </td>
-                                                <td align="center">85</td>
+                                                <td align="center">86</td>
                                                 <td width="10%" align="center">A</td>
                                                 <td width="10%" align="center">4</td>
                                             </tr>
-                                            <tr bordercolor="#000000" class="WhiteFormTextResult" bgcolor="#f5f5f5">
+                                            <tr bordercolor="#000000" class="WhiteFormTextResult" bgcolor="#f5f5f5" style="background-color: #d4edda !important; color: black !important;">
                                                 <td align="center">CSC270          </td>
                                                 <td bgcolor="#f5f5f5" align="center"><div align="left">Database Systems</div></td>
                                                 <td width="20%" align="center">
@@ -582,7 +549,7 @@
                                                 <td width="10%" align="center">A-</td>
                                                 <td width="10%" align="center">3.66</td>
                                             </tr>
-                                            <tr bordercolor="#000000" class="WhiteFormTextResult" bgcolor="#f5f5f5">
+                                            <tr bordercolor="#000000" class="WhiteFormTextResult" bgcolor="#f5f5f5" style="background-color: #d4edda !important; color: black !important;">
                                                 <td align="center">CSC275          </td>
                                                 <td bgcolor="#f5f5f5" align="center"><div align="left">Computer Networks</div></td>
                                                 <td width="20%" align="center">
@@ -612,7 +579,7 @@
                                                     3.66
                                                 </td>
                                             </tr>
-                                            <tr bordercolor="#000000" class="WhiteFormTextResult" bgcolor="#f5f5f5">
+                                            <tr bordercolor="#000000" class="WhiteFormTextResult" bgcolor="#f5f5f5" style="background-color: #d4edda !important; color: black !important;">
                                                 <td align="center">MTH104          </td>
                                                 <td bgcolor="#f5f5f5" align="center"><div align="left">Calculus and Analytic Geometry</div></td>
                                                 <td width="20%" align="center">
@@ -620,7 +587,7 @@
                                                         3
                                                     </strong>
                                                 </td>
-                                                <td align="center">73</td>
+                                                <td align="center">74</td>
                                                 <td width="10%" align="center">B</td>
                                                 <td width="10%" align="center">3</td>
                                             </tr>
@@ -636,10 +603,10 @@
                             <tr> <td><b>Scholastic Status: </b>GAS   </td> </tr>
                         </tbody></table>
                     </div>
-
                 </div>
-                <div class="single_result_container">
 
+                <!-- ==================== SEMESTER 4 (Spring 2026) ==================== -->
+                <div class="single_result_container">
                     <div class="table_container">
                         <table class="tbl_one">
                             <tbody><tr>
@@ -647,7 +614,7 @@
                                 <td><b>Name:</b>  OBAID AHMED</td>
                             </tr>
                             <tr>
-                                <td><b>Semester:</b> Fall 2025  </td>
+                                <td><b>Semester:</b> Spring 2026</td>
                                 <td><b>Father Name:</b> SAEED AKHTAR</td>
                             </tr>
                             <tr>
@@ -661,7 +628,7 @@
                         <table class="tbl_two">
                             <tbody><tr bordercolor="#f5f5f5">
                                 <td colspan="4" bordercolor="#FFFFFF" class="WhiteFormheading2" bgcolor="#FFFFFF" align="center">
-                                    <table id="AutoNumber2" style="border-collapse: collapse" width="100%" cellspacing="0" cellpadding="5" bordercolor="#000000" border="1" bgcolor="#FFFFFF" align="center">
+                                    <table id="AutoNumber4" style="border-collapse: collapse" width="100%" cellspacing="0" cellpadding="5" bordercolor="#000000" border="1" bgcolor="#FFFFFF" align="center">
                                         <tbody><tr class="WhiteFormTextResult" bordercolor="#000000" bgcolor="#f5f5f5">
                                             <td width="20%" align="center"><strong>Course No</strong></td>
                                             <td width="54%" align="center"><strong>Course Title</strong></td>
@@ -671,54 +638,57 @@
                                             <td width="10%" align="center"><strong>G.P.</strong></td>
                                         </tr>
 
-                                            <tr bordercolor="#000000" class="WhiteFormTextResult" bgcolor="#f5f5f5">
-                                                <td align="center">CSC210          </td>
-                                                <td bgcolor="#f5f5f5" align="center"><div align="left">Professional Practices</div></td>
-                                                <td width="20%" align="center">
-                                                    <strong>
-                                                        2
-                                                    </strong>
-                                                </td>
-                                                <td align="center">
-                                                    85
-                                                </td>
-                                                <td width="10%" align="center">
-                                                    A   
-                                                </td>
-                                                <td width="10%" align="center">
-                                                    4
-                                                </td>
-                                            </tr>
-                                            <tr bordercolor="#000000" class="WhiteFormTextResult" bgcolor="#f5f5f5">
-                                                <td align="center">CSC211          </td>
-                                                <td bgcolor="#f5f5f5" align="center"><div align="left">Data Structures</div></td>
+                                            <tr bordercolor="#000000" class="WhiteFormTextResult" bgcolor="#f5f5f5" style="background-color: #d4edda !important; color: black !important;">
+                                                <td align="center">CSC221          </td>
+                                                <td bgcolor="#f5f5f5" align="center"><div align="left">Computer Organization and Assembly Language</div></td>
                                                 <td width="20%" align="center">
                                                     <strong>
                                                         4
                                                     </strong>
                                                 </td>
-                                                <td align="center">70</td>
-                                                <td width="10%" align="center">B</td>
-                                                <td width="10%" align="center">
-                                                    3
-                                                </td>
+                                                <td align="center">85</td>
+                                                <td width="10%" align="center">A</td>
+                                                <td width="10%" align="center">4</td>
                                             </tr>
-                                            <tr bordercolor="#000000" class="WhiteFormTextResult" bgcolor="#f5f5f5">
-                                                <td align="center">CSC232          </td>
-                                                <td bgcolor="#f5f5f5" align="center"><div align="left">Information Security</div></td>
+                                            <tr bordercolor="#000000" class="WhiteFormTextResult" bgcolor="#f5f5f5" style="background-color: #d4edda !important; color: black !important;">
+                                                <td align="center">CSC311          </td>
+                                                <td bgcolor="#f5f5f5" align="center"><div align="left">Design and Analysis of Algorithms</div></td>
                                                 <td width="20%" align="center">
                                                     <strong>
                                                         3
                                                     </strong>
                                                 </td>
                                                 <td align="center">76</td>
-                                                <td width="10%" align="center">
-    B+</td>
+                                                <td width="10%" align="center">B+</td>
                                                 <td width="10%" align="center">3.33</td>
                                             </tr>
-                                            <tr bordercolor="#000000" class="WhiteFormTextResult" bgcolor="#f5f5f5">
-                                                <td align="center">CSC323          </td>
-                                                <td bgcolor="#f5f5f5" align="center"><div align="left">Operating Systems</div></td>
+                                            <tr bordercolor="#000000" class="WhiteFormTextResult" bgcolor="#f5f5f5" style="background-color: #d4edda !important; color: black !important;">
+                                                <td align="center">CSC339          </td>
+                                                <td bgcolor="#f5f5f5" align="center"><div align="left">Mobile Application Development</div></td>
+                                                <td width="20%" align="center">
+                                                    <strong>
+                                                        3
+                                                    </strong>
+                                                </td>
+                                                <td align="center">85</td>
+                                                <td width="10%" align="center">A-</td>
+                                                <td width="10%" align="center">3.66</td>
+                                            </tr>
+                                            <tr bordercolor="#000000" class="WhiteFormTextResult" bgcolor="#f5f5f5" style="background-color: #d4edda !important; color: black !important;">
+                                                <td align="center">MTH201          </td>
+                                                <td bgcolor="#f5f5f5" align="center"><div align="left">Multivariable Calculus</div></td>
+                                                <td width="20%" align="center">
+                                                    <strong>
+                                                        3
+                                                    </strong>
+                                                </td>
+                                                <td align="center">75</td>
+                                                <td width="10%" align="center">B+</td>
+                                                <td width="10%" align="center">3.33</td>
+                                            </tr>
+                                            <tr bordercolor="#000000" class="WhiteFormTextResult" bgcolor="#f5f5f5" style="background-color: #d4edda !important; color: black !important;">
+                                                <td align="center">MTH262          </td>
+                                                <td bgcolor="#f5f5f5" align="center"><div align="left">Statistics and Probability</div></td>
                                                 <td width="20%" align="center">
                                                     <strong>
                                                         3
@@ -728,23 +698,17 @@
                                                 <td width="10%" align="center">A</td>
                                                 <td width="10%" align="center">4</td>
                                             </tr>
-                                            <tr bordercolor="#000000" class="WhiteFormTextResult" bgcolor="#f5f5f5">
-                                                <td align="center">HUM208          </td>
-                                                <td bgcolor="#f5f5f5" align="center"><div align="left">Civics and Community Engagement</div></td>
+                                            <tr bordercolor="#000000" class="WhiteFormTextResult" bgcolor="#f5f5f5" style="background-color: #d4edda !important; color: black !important;">
+                                                <td align="center">CSC325          </td>
+                                                <td bgcolor="#f5f5f5" align="center"><div align="left">Web Technologies</div></td>
                                                 <td width="20%" align="center">
                                                     <strong>
-                                                        2
+                                                        3
                                                     </strong>
                                                 </td>
-                                                <td align="center">
-                                                    85
-                                                </td>
-                                                <td width="10%" align="center">
-                                                    A   
-                                                </td>
-                                                <td width="10%" align="center">
-                                                    4
-                                                </td>
+                                                <td align="center">82</td>
+                                                <td width="10%" align="center">A-</td>
+                                                <td width="10%" align="center">3.66</td>
                                             </tr>
                                     </tbody></table>
                                 </td>
@@ -754,11 +718,10 @@
 
                     <div class="table_container">
                         <table class="tbl_one">
-                            <tbody><tr> <td><b>CGPA : </b>3.57</td> </tr>
+                            <tbody><tr> <td><b>CGPA : </b>3.62</td> </tr>
                             <tr> <td><b>Scholastic Status: </b>GAS   </td> </tr>
                         </tbody></table>
                     </div>
-
                 </div>
 
                 </div>
@@ -777,5 +740,6 @@
 </footer>
     </div>
     
+</body>
 
-</body></html>
+</html>
